@@ -38,8 +38,13 @@ func main() {
 			continue
 		}
 
-		// Placeholder for unit and conversion
 		unit := parts[1]
-		fmt.Println("Temperature:", temp, "Unit:", unit)
+		switch strings.ToUpper(unit) {
+		case "F":
+			celsius := FahrenheitToCelsius(temp)
+			fmt.Printf("%.2f C\n", celsius)
+		default:
+			fmt.Println("Invalid unit. Please specify 'C' for Celsius or 'F' for Fahrenheit.")
+		}
 	}
 }
