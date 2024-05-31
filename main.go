@@ -8,15 +8,14 @@ import (
 	"strings"
 )
 
-// CelsiusToFahrenheit converts a temperature from Celsius to Fahrenheit.
-func CelsiusToFahrenheit(c float64) float64 {
-	return c*9/5 + 32
-
-}
-
 // FahrenheitToCelsius converts a temperature from Fahrenheit to Celsius.
 func FahrenheitToCelsius(f float64) float64 {
 	return (f - 32) * 5 / 9
+}
+
+// CelsiusToFahrenheit converts a temperature from Celsius to Fahrenheit.
+func CelsiusToFahrenheit(c float64) float64 {
+	return (c * 9 / 5) + 32
 }
 
 func main() {
@@ -49,6 +48,9 @@ func main() {
 		case "F":
 			celsius := FahrenheitToCelsius(temp)
 			fmt.Printf("%.2f C\n", celsius)
+		case "C":
+			fahrenheit := CelsiusToFahrenheit(temp)
+			fmt.Printf("%.2f F\n", fahrenheit)
 		default:
 			fmt.Println("Invalid unit. Please specify 'C' for Celsius or 'F' for Fahrenheit.")
 		}
