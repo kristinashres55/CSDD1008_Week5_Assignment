@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -19,5 +20,21 @@ func main() {
 			fmt.Println("Exiting the program.")
 			break
 		}
+
+		parts := strings.Split(input, " ")
+		if len(parts) != 2 {
+			fmt.Println("Invalid input. Please enter the temperature followed by its unit (C or F).")
+			continue
+		}
+
+		temp, err := strconv.ParseFloat(parts[0], 64)
+		if err != nil {
+			fmt.Println("Invalid temperature. Please enter a valid numeric temperature.")
+			continue
+		}
+
+		// Placeholder for unit and conversion
+		unit := parts[1]
+		fmt.Println("Temperature:", temp, "Unit:", unit)
 	}
 }
